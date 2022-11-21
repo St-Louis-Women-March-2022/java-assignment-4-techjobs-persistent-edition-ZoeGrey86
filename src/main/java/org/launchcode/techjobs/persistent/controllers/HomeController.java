@@ -51,6 +51,8 @@ public class HomeController {
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
                                     Errors errors, Model model, @RequestParam(required = false) int employerId, @RequestParam(required = false) List<Integer> skills) {
+        model.addAttribute("employers", employerRepository.findAll());
+        model.addAttribute("skills", skillRepository.findAll());
         Optional<Employer> employerOptional = employerRepository.findById((employerId));
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Job");
