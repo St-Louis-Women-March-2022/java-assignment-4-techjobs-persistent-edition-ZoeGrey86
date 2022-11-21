@@ -10,7 +10,6 @@ import java.util.Objects;
 @MappedSuperclass
 public abstract class AbstractEntity {
 
-
     @Id
     @GeneratedValue
     private int id;
@@ -22,11 +21,9 @@ public abstract class AbstractEntity {
     public AbstractEntity(String name){
         this.name = name;
     }
-
     public AbstractEntity() {
 
     }
-
     public int getId() {
         return id;
     }
